@@ -1,0 +1,230 @@
+/* Base styles */
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f7f8fa;
+  color: #111;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5em 2em;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+header h1 {
+  margin: 0;
+  font-size: 1.6em;
+  color: #0a1a2f;
+}
+nav a {
+  margin-left: 1.5em;
+  font-weight: 500;
+}
+nav a:hover {
+  color: #007bff;
+}
+
+/* Hero / Banner */
+.hero {
+  background: linear-gradient(to right, #062e5c, #0a1a2f);
+  color: #fff;
+  padding: 4em 2em;
+  text-align: center;
+}
+.hero h2 {
+  margin: 0;
+  font-size: 2.8em;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.hero p {
+  margin: 0.8em 0 1.5em;
+  font-size: 1.1em;
+  color: #e0e0e0;
+}
+.hero-buttons a {
+  display: inline-block;
+  padding: 0.9em 1.8em;
+  margin: 0 0.5em;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.3s, color 0.3s;
+}
+.primary-btn {
+  background: #ffffff;
+  color: #0a1a2f;
+}
+.secondary-btn {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+}
+.primary-btn:hover {
+  background: #e6e6e6;
+}
+.secondary-btn:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+/* Section header */
+.section-header {
+  text-align: center;
+  font-size: 2em;
+  margin: 2.5em 0 1em;
+  color: #0a1a2f;
+}
+
+/* Product grid & cards */
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2em;
+  padding: 0 2em 2em;
+}
+.product-card {
+  background: #fff;
+  border-radius: 8px;
+  width: 220px;
+  padding: 1.2em;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+}
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+}
+.product-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 0.8em;
+}
+.product-card h3 {
+  font-size: 1.1em;
+  margin: 0.5em 0;
+  color: #0a1a2f;
+}
+.product-card p {
+  margin: 0.2em 0;
+  color: #555;
+  font-size: 0.95em;
+}
+.price {
+  font-weight: bold;
+  color: #0a1a2f;
+  margin: 0.5em 0;
+}
+.quick-view {
+  margin-top: 0.8em;
+  padding: 0.6em 1.2em;
+  background: #f1f1f1;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+.quick-view:hover {
+  background: #e6e6e6;
+}
+
+/* Modal */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.modal-content {
+  background: #fff;
+  border-radius: 8px;
+  padding: 2em;
+  width: 90%;
+  max-width: 450px;
+  text-align: center;
+  position: relative;
+}
+.modal-content img {
+  max-width: 160px;
+  height: auto;
+  margin-bottom: 1em;
+}
+.modal-close {
+  position: absolute;
+  top: 0.8em;
+  right: 1.2em;
+  font-size: 1.4em;
+  cursor: pointer;
+  color: #888;
+}
+.modal-content h3 {
+  margin: 0.4em 0;
+  font-size: 1.3em;
+  color: #0a1a2f;
+}
+.modal-content p {
+  font-size: 1em;
+  color: #333;
+  margin: 0.6em 0;
+}
+.modal-content .price {
+  margin: 0.8em 0;
+  font-size: 1.2em;
+}
+.modal-content .qty-input {
+  width: 60px;
+  padding: 0.4em;
+  text-align: center;
+  margin: 0.5em 0;
+}
+.modal-content .add-to-cart-btn {
+  margin-top: 1em;
+  padding: 0.7em 1.4em;
+  background: #0a1a2f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.modal-content .add-to-cart-btn:hover {
+  background: #003366;
+}
+
+/* Footer */
+footer {
+  background: #0a1a2f;
+  color: white;
+  text-align: center;
+  padding: 2em 1em;
+  margin-top: 3em;
+  font-size: 0.95em;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero h2 { font-size: 2.2em; }
+  .products { gap: 1.2em; padding: 0 1em 2em; }
+  .product-card { width: 45%; }
+}
+@media (max-width: 500px) {
+  .product-card { width: 92%; }
+}

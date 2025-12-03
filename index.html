@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SBS LABS – Research Products</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header>
+    <h1>SBS LABS</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Shop</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="cart.html">Cart (0)</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>ORDER RESEARCH PEPTIDES</h2>
+    <p>High‑purity compounds for scientific research. Fast, secure, and discreet.</p>
+    <div class="hero-buttons">
+      <a class="primary-btn" href="products.html">VIEW PRODUCTS</a>
+      <a class="secondary-btn" href="about.html">LEARN MORE</a>
+    </div>
+  </section>
+
+  <h2 class="section-header">Featured Research Products</h2>
+  <section class="products">
+    <!-- Product cards will be injected here by products.js -->
+  </section>
+
+  <!-- Modal -->
+  <div class="modal-overlay" id="modal">
+    <div class="modal-content">
+      <span class="modal-close" onclick="closeModal()">&times;</span>
+      <img id="modal-img" src="" alt="">
+      <h3 id="modal-title"></h3>
+      <p id="modal-desc"></p>
+      <p class="price" id="modal-price"></p>
+      <input type="number" id="modalQty" class="qty-input" value="1" min="1">
+      <button class="add-to-cart-btn" onclick="addToCartFromModal()">Add to Cart</button>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 SBS LABS • Research Use Only • Not for Human Consumption
+  </footer>
+
+  <!-- Include product data and dynamic generation script -->
+  <script src="products.js"></script>
+  <script>
+    const modal = document.getElementById('modal');
+    const modalImg = document.getElementById('modal-img');
+    const modalTitle = document.getElementById('modal-title');
+    const modalDesc = document.getElementById('modal-desc');
+    const modalPrice = document.getElementById('modal-price');
+
+    function openModal(product) {
+      modalImg.src = product.img;
+      modalImg.alt = product.name;
+      modalTitle.textContent = product.name;
+      modalDesc.textContent = product.desc;
+      modalPrice.textContent = '$' + parseFloat(product.price).toFixed(2);
+      modal.style.display = 'flex';
+    }
+
+    function closeModal() {
+      modal.style.display = 'none';
+    }
+    window.addEventListener('click', e => {
+      if (e.target === modal) closeModal();
+    });
+
+    function addToCartFromModal() {
+      const qty = parseInt(document.getElementById('modalQty').value) || 1;
+      alert(`${qty} × ${modalTitle.textContent} added to cart (demo)`);
+      closeModal();
+    }
+  </script>
+</body>
+</html>
